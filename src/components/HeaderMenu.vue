@@ -2,19 +2,25 @@
   <div class="header">
     <div class="header__container">
       <div class="header__box">
-        <router-link to="/" class="header__link">Главная</router-link>
-        <router-link to="/authors" class="header__link">Список авторов</router-link>
-        <router-link to="/books" class="header__link">Список книг</router-link>
-        <router-link to="/search" class="header__link">Поиск</router-link>
+        <router-link
+            v-for="(item, index) in menu"
+            :to="item.path"
+            :key="index"
+            class="header__link"
+        >
+          {{ item.name }}
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: "HeaderMenu"
-}
+<script setup>
+import { useStore } from 'vuex'
+import {computed } from "vue";
+
+const store = useStore()
+const menu = computed(() => store.state.menu)
 </script>
 
 <style lang="scss" scoped>
@@ -37,12 +43,12 @@ export default {
   }
 
   &__link {
-    @include text($font, 700, 18px, 24px, $color-black);
+    @include text($font, 700, 18px, 24px, $color-blue);
     text-decoration: none;
     transition: color 0.3s ease;
 
     &:hover {
-      color: $color-blue;
+      color: $color-red;
     }
   }
 }

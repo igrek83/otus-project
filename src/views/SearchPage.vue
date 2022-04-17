@@ -1,14 +1,7 @@
+<script setup>
+  import SearchBlock from "@/components/SearchBlock";
+</script>
+
 <template>
   <SearchBlock />
 </template>
-
-<script>
-import SearchBlock from "@/components/SearchBlock";
-
-export default {
-  name: "SearchPage",
-  components: {
-    SearchBlock,
-  }
-}
-</script>

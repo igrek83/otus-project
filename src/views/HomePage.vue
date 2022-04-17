@@ -1,17 +1,7 @@
-<template>
-  <div class="page">
-    Главная
-  </div>
-</template>
-
-<script>
-
-export default {
-  name: "HomePage",
-
-}
+<script setup>
+import HomeBlock from "@/components/HomeBlock";
 </script>
 
-<style scoped>
-
-</style>
+<template>
+  <HomeBlock />
+</template>

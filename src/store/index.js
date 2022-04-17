@@ -3,6 +3,28 @@ import axios from 'axios'
 
 export default createStore({
   state: {
+    menu: [
+      {
+        name: 'Главная',
+        path: '/'
+      },
+      {
+        name: 'Список авторов',
+        path: '/authors'
+      },
+      {
+        name: 'Список книг',
+        path: '/books'
+      },
+      {
+        name: 'Поиск',
+        path: '/search'
+      },
+      {
+        name: 'Добавить книгу/автора',
+        path: '/form'
+      },
+    ],
     list: [],
   },
 
@@ -18,6 +40,10 @@ export default createStore({
         }
       });
       state.list.splice(result, 1)
+    },
+
+    addBooks(state, obj) {
+      state.list.push(obj)
     },
   },
   actions: {
